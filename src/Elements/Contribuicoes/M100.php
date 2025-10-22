@@ -132,15 +132,4 @@ class M100 extends Element
         $this->std = $this->standarize($std);
         $this->postValidation();
     }
-
-    public function postValidation()
-    {
-        $calculo = $this->values->vl_cred+$this->values->vl_ajus_acres;
-        $calculo = $calculo-$this->values->vl_ajus_reduc;
-        if ($this->values->vl_cred_dif>$calculo) {
-            $this->errors[] = "[" . self::REG . "] " .
-                "O campo VL_CRED_DIF não deve de ser maior do que  " .
-                "não pode ser maior que VL_CRED + VL_AJUS_ACRES - VL_AJUS_REDUC";
-        }
-    }
 }
